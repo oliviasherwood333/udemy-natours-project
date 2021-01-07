@@ -12,6 +12,7 @@ Dark green: #28b485
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: "lato", sans-serif;
   font-weight: 400;
@@ -20,14 +21,13 @@ body {
   color: #777;
   padding: 30px;
 }
+
 .header {
   height: 95vh;
   width: 100%;
-  background-image: linear-gradient(
-      to right bottom,
+  background-image: linear-gradient(to right bottom,
       rgb(126, 213, 111, 0.8),
-      rgb(40, 180, 133, 0.8)
-    ),
+      rgb(40, 180, 133, 0.8)),
     url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
@@ -35,31 +35,48 @@ body {
 
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
+
 .logo-box {
   position: absolute;
   top: 40px;
   left: 40px;
 }
+
 .logo {
   height: 35px;
 }
 
 .text-box {
-    position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%,-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+
+  backface-visibility: hidden;
 }
+
 .heading-primary-main {
   display: block;
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+
+  animation-timing-function: ease-in;
+
+  /* time delay on animation:
+  animation-delay: 3s;
+
+  repeat animation:
+  animation-iteration-count: 3;
+*/
 }
 
 .heading-primary-sub {
@@ -67,18 +84,43 @@ transform: translate(-50%,-50%);
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+  animation: moveInRight 1s ease-out;
 }
 
 @keyframes moveInLeft {
   0% {
-opacity: 0;
-transform: translateX()
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  60% {
+    transform: rotate(180deg);
   }
 
   80% {
-
+    transform: translateX(10px);
   }
+
   100% {
-opacity: 1;
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
   }
 }
