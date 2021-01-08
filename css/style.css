@@ -129,10 +129,6 @@ body {
     transform: translateY(30px);
   }
 
-  80% {
-    transform: translateX(-10px);
-  }
-
   100% {
     opacity: 1;
     transform: translate(0);
@@ -190,5 +186,6 @@ body {
 }
 
 .btn-animated {
-  animation: moveInBottom .5s ease-out;
+  animation: moveInBottom .5s ease-out .75s;
+  animation-fill-mode: backwards;
 }
